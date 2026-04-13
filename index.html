@@ -1,169 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathew's Clothing Store</title>
-    <meta name="description" content="Mathew's Clothing Store — elevated essentials, premium streetwear, and clean modern style.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathew's Clothing Store</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="brand">Mathew's Clothing Store</div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-        <nav class="site-nav" id="siteNav">
-            <a href="#home">Home</a>
-            <a href="#collections">Collections</a>
-            <a href="#products">Shop</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <p class="eyebrow">NEW SEASON • MODERN ESSENTIALS</p>
-                <h1>Wear confidence.<br>Own the room.</h1>
-                <p class="hero-copy">
-                    Premium layers, sharp silhouettes, and everyday pieces designed to look expensive.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="#products">Shop New Arrivals</a>
-                    <a class="btn btn-secondary" href="#collections">Explore Collections</a>
-                </div>
-            </div>
-            <div class="hero-card">
-                <p class="hero-card-label">DROP 01</p>
-                <h2>City Neutral</h2>
-                <p>Minimal color. Strong fit. Everyday luxury.</p>
-                <a href="#products">View Edit</a>
-            </div>
-        </section>
+<header>
+  <h1>Mathew's Clothing Store</h1>
+  <nav id="siteNav">
+    <a href="#">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </nav>
+</header>
 
-        <section class="collections" id="collections">
-            <div class="section-heading">
-                <p class="section-kicker">Collections</p>
-                <h2>Built like a real fashion brand</h2>
-                <p>Curated categories that feel premium, clean, and easy to shop.</p>
-            </div>
+<!-- HERO SECTION WITH OVERLAY -->
+<section class="hero">
+  <div class="overlay"></div>
+  <h2>New Collection 2026</h2>
+  <p>Style that defines you.</p>
+  <button onclick="scrollToProducts()">Shop Now</button>
+</section>
 
-            <div class="collection-grid">
-                <article class="collection-card collection-dark">
-                    <span>01</span>
-                    <h3>Outerwear</h3>
-                    <p>Structured jackets, heavyweight layers, and clean cold-weather staples.</p>
-                </article>
-                <article class="collection-card collection-light">
-                    <span>02</span>
-                    <h3>Essentials</h3>
-                    <p>Luxury basics with elevated cuts for daily wear.</p>
-                </article>
-                <article class="collection-card collection-accent">
-                    <span>03</span>
-                    <h3>Denim</h3>
-                    <p>Modern fits, dark washes, and pieces made to anchor the wardrobe.</p>
-                </article>
-            </div>
-        </section>
+<!-- PRODUCTS -->
+<section id="products">
+  <h2>Featured Products</h2>
+  <div class="product-grid">
+    <div class="product">
+      <img src="images/product1.jpg" alt="Your featured product">
+      <h3>Featured Item</h3>
+      <p>$49.99</p>
+      <button>Add to Cart</button>
+    </div>
 
-        <section class="featured-products" id="products">
-            <div class="section-heading left-align">
-                <p class="section-kicker">Featured Products</p>
-                <h2>Best sellers</h2>
-                <p>High-contrast product cards with a polished storefront feel.</p>
-            </div>
+    <!-- Duplicate this block or add more products as needed -->
+    <!--
+    <div class="product">
+      <img src="images/product2.jpg" alt="Another product">
+      <h3>Another Item</h3>
+      <p>$59.99</p>
+      <button>Add to Cart</button>
+    </div>
+    -->
+  </div>
+</section>
 
-            <div class="product-grid">
-                <article class="product-card">
-                    <div class="product-visual visual-one"></div>
-                    <div class="product-info">
-                        <p class="product-category">Essentials</p>
-                        <h3>Signature Tee</h3>
-                        <p class="product-description">Heavyweight cotton with a structured drape.</p>
-                        <div class="product-meta">
-                            <span>$34</span>
-                            <button type="button">Add to Cart</button>
-                        </div>
-                    </div>
-                </article>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>Mathew's Clothing Store delivers high-quality fashion designed for comfort and confidence.</p>
+</section>
 
-                <article class="product-card">
-                    <div class="product-visual visual-two"></div>
-                    <div class="product-info">
-                        <p class="product-category">Outerwear</p>
-                        <h3>Streetline Jacket</h3>
-                        <p class="product-description">A sharp everyday layer with premium detailing.</p>
-                        <div class="product-meta">
-                            <span>$98</span>
-                            <button type="button">Add to Cart</button>
-                        </div>
-                    </div>
-                </article>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: support@mathewsclothing.com</p>
+</section>
 
-                <article class="product-card">
-                    <div class="product-visual visual-three"></div>
-                    <div class="product-info">
-                        <p class="product-category">Denim</p>
-                        <h3>Midnight Denim</h3>
-                        <p class="product-description">Tapered fit with a clean dark-wash finish.</p>
-                        <div class="product-meta">
-                            <span>$76</span>
-                            <button type="button">Add to Cart</button>
-                        </div>
-                    </div>
-                </article>
+<footer>
+  <p>© 2026 Mathew's Clothing Store</p>
+</footer>
 
-                <article class="product-card">
-                    <div class="product-visual visual-four"></div>
-                    <div class="product-info">
-                        <p class="product-category">Footwear</p>
-                        <h3>Monarch Runner</h3>
-                        <p class="product-description">Minimalist sneaker styling for daily rotation.</p>
-                        <div class="product-meta">
-                            <span>$112</span>
-                            <button type="button">Add to Cart</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="banner">
-            <div>
-                <p class="section-kicker">Style Philosophy</p>
-                <h2>Luxury energy without luxury prices.</h2>
-            </div>
-            <a class="btn btn-primary" href="#contact">Book a Style Drop</a>
-        </section>
-
-        <section class="about-contact-wrap">
-            <section class="about" id="about">
-                <p class="section-kicker">About</p>
-                <h2>Mathew's Clothing Store</h2>
-                <p>
-                    This brand is built around clean design, elevated basics, and modern streetwear influence.
-                    The site is intentionally bold, minimal, and conversion-focused.
-                </p>
-            </section>
-
-            <section class="contact" id="contact">
-                <p class="section-kicker">Contact</p>
-                <h2>Let's build the brand</h2>
-                <p>Email: support@mathewsclothingstore.com</p>
-                <p>Instagram: @mathewsclothingstore</p>
-            </section>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <p>© 2026 Mathew's Clothing Store. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
