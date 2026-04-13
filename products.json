@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Premium Hoodie",
+    "price": 49.99,
+    "description": "Our best-selling hoodie in the new Spring colorway.",
+    "image": "/images/products/premium-hoodie.jpg"
+  },
+  {
+    "title": "Classic Tee",
+    "price": 29.99,
+    "description": "Made from ultra-soft cotton. Available in multiple colors.",
+    "image": "/images/products/classic-tee.jpg"
+  }
+]
