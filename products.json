@@ -12,15 +12,15 @@
     "image": "images/pic1.png"
   },
   {
-    "title": "New Product Name",
-    "price": 39.99,
-    "description": "A brief description of the new product.",
-    "image": "products/pjQ59TDVy0G_vcrdoXPVUA.jpg"
+    "title": "Cheese Toes",
+    "price": 1000000,
+    "description": "Smell my toes you big hunk!",
+    "image": "media/images/pjQ59TDVy0G_vcrdoXPVUA.jpg"
   },
   {
     "title": "It's Bryan",
     "price": 0.01,
     "description": "The best you can get.",
-    "image": "products/Screenshot 2025-12-09 at 20.02.39.png"
+    "image": "media/images/Screenshot 2025-12-09 at 20.02.39.png"
   }
 ]
