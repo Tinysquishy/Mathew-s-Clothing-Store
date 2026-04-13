@@ -1,0 +1,28 @@
+media:
+  - name: images                 # internal name
+    label: Product Images        # appears in the UI
+    input: media/images          # where files are saved in the repo
+    output: /images              # path used on your site
+    extensions: [jpg, png, webp] # allowed file types
+
+content:
+  - name: products
+    label: Products
+    type: collection
+    path: content/products       # CMS writes each product here
+    fields:
+      - name: title
+        label: Product Name
+        type: string
+      - name: price
+        label: Price
+        type: number
+      - name: description
+        label: Description
+        type: text
+      - name: image
+        label: Product Image
+        type: image
+        options:
+          media: images
+          path: products          # optional subfolder inside media/images
