@@ -26,23 +26,19 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 /**
- * Fetch products from a JSON file and render them.
- * Adjust the URL if your JSON lives elsewhere.
+ * Read products.json and insert product cards into the grid.
+ * Adjust the path ('products.json') if your JSON file lives elsewhere.
  */
 async function loadProducts() {
   try {
-    // Fetch product data (adjust the path to match your repo structure)
-    const response = await fetch("content/products.json");
+    const response = await fetch("products.json");
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`Failed to load products.json: ${response.status}`);
     }
     const products = await response.json();
-
-    // Find the grid container and clear existing products
     const grid = document.querySelector(".product-grid");
-    grid.innerHTML = "";
+    grid.innerHTML = ""; // clear any existing cards
 
-    // Generate product cards dynamically
     products.forEach((product) => {
       const card = document.createElement("div");
       card.className = "product";
@@ -50,15 +46,15 @@ async function loadProducts() {
         <img src="${product.image}" alt="${product.title}">
         <h3>${product.title}</h3>
         <p>${product.description}</p>
-        <p>$${product.price}</p>
+        <p>$${product.price.toFixed(2)}</p>
         <button>Add to Cart</button>
       `;
       grid.appendChild(card);
     });
   } catch (err) {
-    console.error("Failed to load products:", err);
+    console.error(err);
   }
 }
 
-// Kick off product loading after the page finishes loading
+// Load products after DOM is ready
 document.addEventListener("DOMContentLoaded", loadProducts);

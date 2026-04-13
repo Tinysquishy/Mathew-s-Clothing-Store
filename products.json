@@ -10,5 +10,17 @@
     "price": 29.99,
     "description": "Made from ultra-soft cotton. Available in multiple colors.",
     "image": "/images/products/classic-tee.jpg"
+  },
+  {
+    "title": "New Product Name",
+    "price": 39.99,
+    "description": "A brief description of the new product.",
+    "image": "/images/products/new-product.jpg"
+  },
+  {
+    "title": "Another New Product",
+    "price": 24.99,
+    "description": "Description of the second new product.",
+    "image": "/images/products/another-new-product.jpg"
   }
 ]
