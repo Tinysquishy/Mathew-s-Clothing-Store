@@ -198,6 +198,13 @@ section {
     background: var(--accent-hover);
 }
 
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
 .product {
     overflow: hidden;
     border-radius: 26px;
@@ -214,8 +221,9 @@ section {
 
 .product img {
     width: 100%;
-    height: 320px;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    object-position: center;
     background: linear-gradient(160deg, #181b24 0%, #2b3141 100%);
 }
 
@@ -248,10 +256,6 @@ footer {
 }
 
 @media (max-width: 1100px) {
-    .hero {
-        grid-template-columns: 1fr;
-    }
-
     .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -296,18 +300,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
-        align-items: start;
-    }
-
     .product img {
-        width: 100%;
         aspect-ratio: 4 / 5;
-        object-fit: cover;
-        object-position: center;
     }
 
     footer {
