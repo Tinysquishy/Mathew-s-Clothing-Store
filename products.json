@@ -15,12 +15,12 @@
     "title": "New Product Name",
     "price": 39.99,
     "description": "A brief description of the new product.",
-    "image": "images/pjQ59TDVy0G_vcrdoXPVUA.jpg"
+    "image": "products/pjQ59TDVy0G_vcrdoXPVUA.jpg"
   },
   {
     "title": "It's Bryan",
     "price": 0.01,
     "description": "The best you can get.",
-    "image": "images/Screenshot 2025-12-09 at 20.02.39.png"
+    "image": "products/Screenshot 2025-12-09 at 20.02.39.png"
   }
 ]
