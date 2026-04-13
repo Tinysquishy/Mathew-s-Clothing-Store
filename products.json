@@ -3,24 +3,24 @@
     "title": "Gas Pump Zelda",
     "price": 49.99,
     "description": "Man that's 50 dollars for a T-Shirt.",
-    "image": "/images/gas pump.jpg"
+    "image": "images/gas pump.jpg"
   },
   {
     "title": "Levi Tee",
     "price": 29.99,
     "description": "Made from ultra-soft cotton.",
-    "image": "/images/pic1.png"
+    "image": "images/pic1.png"
   },
   {
     "title": "New Product Name",
     "price": 39.99,
     "description": "A brief description of the new product.",
-    "image": "/images/pjQ59TDVy0G_vcrdoXPVUA.jpg"
+    "image": "images/pjQ59TDVy0G_vcrdoXPVUA.jpg"
   },
   {
     "title": "It's Bryan",
     "price": 0.01,
     "description": "The best you can get.",
-    "image": "/images/Screenshot 2025-12-09 at 20.02.39.png"
+    "image": "images/Screenshot 2025-12-09 at 20.02.39.png"
   }
 ]
