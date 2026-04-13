@@ -1,26 +1,26 @@
 [
   {
-    "title": "Premium Hoodie",
+    "title": "Gas Pump Zelda",
     "price": 49.99,
-    "description": "Our best-selling hoodie in the new Spring colorway.",
-    "image": "/images/products/premium-hoodie.jpg"
+    "description": "Man that's 50 dollars for a T-Shirt.",
+    "image": "/images/gas pump.jpg"
   },
   {
-    "title": "Classic Tee",
+    "title": "Levi Tee",
     "price": 29.99,
-    "description": "Made from ultra-soft cotton. Available in multiple colors.",
-    "image": "/images/products/classic-tee.jpg"
+    "description": "Made from ultra-soft cotton.",
+    "image": "/images/pic1.png"
   },
   {
     "title": "New Product Name",
     "price": 39.99,
     "description": "A brief description of the new product.",
-    "image": "/images/products/new-product.jpg"
+    "image": "/images/pjQ59TDVy0G_vcrdoXPVUA.jpg"
   },
   {
-    "title": "Another New Product",
-    "price": 24.99,
-    "description": "Description of the second new product.",
-    "image": "/images/products/another-new-product.jpg"
+    "title": "It's Bryan",
+    "price": 0.01,
+    "description": "It's Bryan.",
+    "image": "/images/Screenshot 2025-12-09 at 20.02.39.png"
   }
 ]
