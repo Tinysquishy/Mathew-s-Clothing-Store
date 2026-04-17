@@ -253,6 +253,8 @@ section {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
+.product button {
     margin: 18px 22px 22px;
     border: 0;
     border-radius: 999px;
@@ -261,6 +263,16 @@ section {
     color: var(--white);
     font-weight: 700;
     cursor: pointer;
+}
+
+.view-shop-btn {
+    background: var(--accent);
+    color: #111;
+}
+
+.view-shop-btn:hover,
+.view-shop-btn:focus-visible {
+    background: var(--accent-hover);
 }
 
 footer {

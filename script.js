@@ -54,7 +54,7 @@ async function loadFeaturedItem() {
         <h3>${featured.title}</h3>
         <p>${featured.description}</p>
         <p>$${featured.price.toFixed(2)}</p>
-        <button onclick="window.location.href='shop.html'">View in Shop</button>
+        <button class="view-shop-btn" onclick="window.location.href='shop.html'">View in Shop</button>
       `;
       grid.appendChild(card);
     } else {
