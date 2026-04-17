@@ -6,31 +6,355 @@
   <title>Matthew's Clothing Store</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .add-to-cart-btn {
-      background-color: black;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
+    .promo-bar {
       display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: #111;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .promo-bar button {
+      background: #fff;
+      color: #111;
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0 0;
+    }
+
+    .quick-actions button,
+    .quick-actions a {
+      text-decoration: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .site-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .featured-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 16px 0 20px;
+    }
+
+    .featured-toolbar button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: #ece8e1;
+      color: #111;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .featured-panel,
+    .cart-panel,
+    .newsletter-panel,
+    .testimonials-panel {
+      background: #fff;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+    }
+
+    .featured-product-card {
+      overflow: hidden;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
+    }
+
+    .featured-product-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .featured-product-content {
+      padding: 20px;
+    }
+
+    .featured-product-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.9rem;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 12px 0 18px;
+      flex-wrap: wrap;
+    }
+
+    .current-price {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .old-price {
+      color: #777;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .badge-row span {
+      background: #f3efe8;
+      color: #111;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .purchase-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .purchase-controls label {
+      font-weight: 700;
+      color: #111;
+    }
+
+    .purchase-controls select,
+    .purchase-controls input {
+      border: 1px solid #d9d3ca;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: inherit;
+      background: #fff;
+    }
+
+    .add-to-cart-btn,
+    .buy-now-btn,
+    .wishlist-btn,
+    .clear-cart-btn,
+    .apply-code-btn,
+    .newsletter-panel button,
+    .featured-panel button,
+    .cart-panel button {
+      border: 0;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .add-to-cart-btn,
+    .buy-now-btn {
+      min-width: 150px;
+      min-height: 150px;
+      padding: 18px;
+      background: #000;
+      color: #fff;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
     }
 
-    .add-to-cart-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    .buy-now-btn {
+      background: #b8860b;
+      color: #111;
+    }
+
+    .wishlist-btn,
+    .clear-cart-btn,
+    .apply-code-btn,
+    .newsletter-panel button,
+    .featured-panel button,
+    .cart-panel button {
+      padding: 12px 18px;
+      background: #111;
+      color: #fff;
+    }
+
+    .add-to-cart-btn:hover,
+    .buy-now-btn:hover,
+    .wishlist-btn:hover,
+    .clear-cart-btn:hover,
+    .apply-code-btn:hover,
+    .newsletter-panel button:hover,
+    .featured-panel button:hover,
+    .cart-panel button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    .cart-panel h3,
+    .newsletter-panel h3,
+    .testimonials-panel h3,
+    .featured-panel h3 {
+      margin-top: 0;
+    }
+
+    .cart-summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+
+    .cart-total {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid #ece7de;
+    }
+
+    .cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cart-items li {
+      background: #f8f5f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .coupon-row,
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .coupon-row input,
+    .newsletter-form input {
+      flex: 1 1 220px;
+      border: 1px solid #d9d3ca;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+    }
+
+    .section-note,
+    .success-message,
+    .cart-status,
+    .wishlist-status {
+      margin-top: 12px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .testimonial {
+      background: #f8f5f0;
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .shop-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .benefit-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 700px) {
+      .add-to-cart-btn,
+      .buy-now-btn {
+        min-width: 120px;
+        min-height: 120px;
+      }
     }
   </style>
 </head>
+
 <body>
+<div class="promo-bar">
+  <span>Free shipping on orders over $75 · New drops every Friday</span>
+  <button type="button" onclick="window.location.href='shop.html'">Shop Deals</button>
+</div>
 
 <header>
   <h1>Matthew's Clothing Store</h1>
@@ -41,6 +365,7 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
+  <button id="cartShortcut" type="button" aria-label="Open cart summary">🛒 Cart (<span id="cartCount">0</span>)</button>
 </header>
 
 <!-- HERO SECTION WITH OVERLAY -->
@@ -49,15 +374,129 @@
   <h2>New Collection 2026</h2>
   <p>Style that defines you.</p>
   <button onclick="window.location.href='shop.html'">Shop Now</button>
+  <div class="quick-actions">
+    <a href="#featured">Featured Drop</a>
+    <a href="#contact">Contact Us</a>
+    <button type="button" id="scrollDealsBtn">Why Shop Here</button>
+  </div>
+  <div class="site-stats">
+    <div class="stat-card"><strong>24H</strong><span>Fast order turnaround</span></div>
+    <div class="stat-card"><strong>4.9★</strong><span>Customer-rated style</span></div>
+    <div class="stat-card"><strong>Easy</strong><span>Simple checkout experience</span></div>
+  </div>
 </section>
 
 <!-- FEATURED ITEM -->
 <section id="featured">
   <h2>Featured Item</h2>
   <p>Try the homepage spotlight product before you browse the full shop.</p>
+  <div class="featured-toolbar">
+    <button type="button" id="focusFeaturedBtn">Spotlight Product</button>
+    <button type="button" id="viewCartBtn">View Cart</button>
+    <button type="button" onclick="window.location.href='shop.html'">Browse Full Shop</button>
+  </div>
   <div class="featured-grid">
-    <p class="loading">Loading featured item...</p>
-    <button class="add-to-cart-btn">Add to Cart</button>
+    <div class="featured-product-card" id="featuredCard">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Featured fashion item">
+      <div class="featured-product-content">
+        <div class="badge-row">
+          <span>Featured</span>
+          <span>Best Seller</span>
+          <span>Limited Drop</span>
+        </div>
+        <h3 id="featuredName">Bryan Signature Tee</h3>
+        <p id="featuredDescription">Premium everyday streetwear with a clean fit, soft fabric, and a bold spotlight look.</p>
+        <div class="price-row">
+          <span class="current-price" id="featuredPrice">$38.00</span>
+          <span class="old-price">$52.00</span>
+        </div>
+        <div class="purchase-controls">
+          <label for="sizeSelect">Size</label>
+          <select id="sizeSelect" name="sizeSelect">
+            <option value="S">S</option>
+            <option value="M" selected>M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+          <label for="quantityInput">Qty</label>
+          <input id="quantityInput" name="quantityInput" type="number" min="1" value="1">
+        </div>
+        <div class="purchase-controls">
+          <button class="add-to-cart-btn" id="addToCartBtn" type="button">Add to Cart</button>
+          <button class="buy-now-btn" id="buyNowBtn" type="button">Buy Now</button>
+          <button class="wishlist-btn" id="wishlistBtn" type="button">♡ Wishlist</button>
+        </div>
+        <p class="cart-status" id="cartStatus">Ready to add this item to your cart.</p>
+        <p class="wishlist-status" id="wishlistStatus">Save it to your wishlist for later.</p>
+      </div>
+    </div>
+
+    <div class="cart-panel" id="cartPanel">
+      <h3>Quick Cart</h3>
+      <p class="section-note">A working cart preview directly on the homepage.</p>
+      <ul class="cart-items" id="cartItems">
+        <li><span>Your cart is empty.</span><span>—</span></li>
+      </ul>
+      <div class="cart-summary-line"><span>Items</span><span id="summaryItems">0</span></div>
+      <div class="cart-summary-line"><span>Subtotal</span><span id="summarySubtotal">$0.00</span></div>
+      <div class="cart-summary-line"><span>Discount</span><span id="summaryDiscount">$0.00</span></div>
+      <div class="cart-summary-line cart-total"><span>Total</span><span id="summaryTotal">$0.00</span></div>
+      <div class="coupon-row">
+        <input id="couponInput" type="text" placeholder="Enter code: STYLE10">
+        <button class="apply-code-btn" id="applyCouponBtn" type="button">Apply Code</button>
+      </div>
+      <p class="success-message" id="couponMessage">Use STYLE10 for 10% off this featured item.</p>
+      <div class="quick-actions">
+        <button class="clear-cart-btn" id="clearCartBtn" type="button">Clear Cart</button>
+        <button type="button" onclick="window.location.href='shop.html'">Checkout in Shop</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why-shop">
+  <h2>Why Shop Here</h2>
+  <div class="shop-benefits">
+    <div class="benefit-card">
+      <h3>Fast Buying Flow</h3>
+      <p>Quick quantity, size, cart, and checkout actions without making people hunt around the site.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Better Product Focus</h3>
+      <p>A stronger spotlight section makes the homepage feel alive and gives shoppers a clear first action.</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Built to Convert</h3>
+      <p>Wishlist, coupon support, cart summary, and direct shop links make the homepage actually useful.</p>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-panel" id="newsletter">
+  <h3>Get First Access</h3>
+  <p>Join the list for new drops, sale alerts, and featured item announcements.</p>
+  <div class="newsletter-form">
+    <input type="email" id="newsletterEmail" placeholder="Enter your email address">
+    <button type="button" id="newsletterBtn">Join Now</button>
+  </div>
+  <p class="success-message" id="newsletterMessage">No signup yet.</p>
+</section>
+
+<section class="testimonials-panel">
+  <h3>What Customers Are Saying</h3>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <strong>Jordan</strong>
+      <p>"The homepage feels premium and the checkout actions are actually smooth."</p>
+    </div>
+    <div class="testimonial">
+      <strong>Taylor</strong>
+      <p>"Love the featured item section. It finally feels like a real store."</p>
+    </div>
+    <div class="testimonial">
+      <strong>Morgan</strong>
+      <p>"Fast, clean, stylish, and easy to use."</p>
+    </div>
   </div>
 </section>
 
@@ -77,6 +516,123 @@
   <p>© 2026 Matthew's Clothing Store</p>
 </footer>
 
-<script src="script.js"></script>
+</script src="script.js"></script>
+<script>
+  const featuredProduct = {
+    name: 'Bryan Signature Tee',
+    price: 38,
+    description: 'Premium everyday streetwear with a clean fit, soft fabric, and a bold spotlight look.'
+  };
+
+  const cart = [];
+  let appliedDiscount = 0;
+
+  const cartCount = document.getElementById('cartCount');
+  const cartItems = document.getElementById('cartItems');
+  const summaryItems = document.getElementById('summaryItems');
+  const summarySubtotal = document.getElementById('summarySubtotal');
+  const summaryDiscount = document.getElementById('summaryDiscount');
+  const summaryTotal = document.getElementById('summaryTotal');
+  const cartStatus = document.getElementById('cartStatus');
+  const wishlistStatus = document.getElementById('wishlistStatus');
+  const couponMessage = document.getElementById('couponMessage');
+
+  function formatPrice(value) {
+    return `$${value.toFixed(2)}`;
+  }
+
+  function renderCart() {
+    const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const discountValue = subtotal * appliedDiscount;
+    const total = subtotal - discountValue;
+
+    cartCount.textContent = itemCount;
+    summaryItems.textContent = itemCount;
+    summarySubtotal.textContent = formatPrice(subtotal);
+    summaryDiscount.textContent = `-${formatPrice(discountValue)}`;
+    summaryTotal.textContent = formatPrice(total < 0 ? 0 : total);
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = '<li><span>Your cart is empty.</span><span>—</span></li>';
+      return;
+    }
+
+    cartItems.innerHTML = cart.map(item => `
+      <li>
+        <span>${item.name} · ${item.size} × ${item.quantity}</span>
+        <span>${formatPrice(item.price * item.quantity)}</span>
+      </li>
+    `).join('');
+  }
+
+  document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const size = document.getElementById('sizeSelect').value;
+    const quantity = Math.max(1, Number(document.getElementById('quantityInput').value) || 1);
+    cart.push({
+      name: featuredProduct.name,
+      price: featuredProduct.price,
+      size,
+      quantity
+    });
+    cartStatus.textContent = `${featuredProduct.name} added to cart.`;
+    renderCart();
+  });
+
+  document.getElementById('buyNowBtn').addEventListener('click', () => {
+    document.getElementById('addToCartBtn').click();
+    cartStatus.textContent = 'Added to cart. Redirecting you to the full shop next.';
+    window.location.href = 'shop.html';
+  });
+
+  document.getElementById('wishlistBtn').addEventListener('click', () => {
+    wishlistStatus.textContent = `${featuredProduct.name} saved to your wishlist.`;
+  });
+
+  document.getElementById('clearCartBtn').addEventListener('click', () => {
+    cart.length = 0;
+    appliedDiscount = 0;
+    couponMessage.textContent = 'Cart cleared. Use STYLE10 for 10% off this featured item.';
+    cartStatus.textContent = 'Cart reset.';
+    renderCart();
+  });
+
+  document.getElementById('applyCouponBtn').addEventListener('click', () => {
+    const couponValue = document.getElementById('couponInput').value.trim().toUpperCase();
+    if (couponValue === 'STYLE10') {
+      appliedDiscount = 0.10;
+      couponMessage.textContent = 'Coupon applied. You just unlocked 10% off.';
+    } else {
+      appliedDiscount = 0;
+      couponMessage.textContent = 'Invalid code. Try STYLE10.';
+    }
+    renderCart();
+  });
+
+  document.getElementById('newsletterBtn').addEventListener('click', () => {
+    const email = document.getElementById('newsletterEmail').value.trim();
+    document.getElementById('newsletterMessage').textContent = email
+      ? `Thanks, ${email} is now on the list.`
+      : 'Enter an email address first.';
+  });
+
+  document.getElementById('viewCartBtn').addEventListener('click', () => {
+    document.getElementById('cartPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  document.getElementById('cartShortcut').addEventListener('click', () => {
+    document.getElementById('cartPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  document.getElementById('scrollDealsBtn').addEventListener('click', () => {
+    document.getElementById('why-shop').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  document.getElementById('focusFeaturedBtn').addEventListener('click', () => {
+    document.getElementById('featuredCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  renderCart();
+</script>
 </body>
 </html>
