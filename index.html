@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matthew's Clothing Store</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .add-to-cart-btn {
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .add-to-cart-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+  </style>
 </head>
 <body>
 
@@ -33,6 +57,7 @@
   <p>Try the homepage spotlight product before you browse the full shop.</p>
   <div class="featured-grid">
     <p class="loading">Loading featured item...</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
   </div>
 </section>
 
