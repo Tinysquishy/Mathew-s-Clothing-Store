@@ -498,7 +498,7 @@
       <p class="success-message" id="couponMessage">Use STYLE10 for 10% off this featured item.</p>
       <div class="quick-actions">
         <button class="clear-cart-btn" id="clearCartBtn" type="button">Clear Cart</button>
-        <button type="button" onclick="window.location.href='shop.html'">Checkout in Shop</button>
+        <button type="button" id="goToCheckoutBtn">Go to Checkout</button>
       </div>
     </div>
   </div>
@@ -566,15 +566,17 @@
   <p>© 2026 Matthew's Clothing Store</p>
 </footer>
 
-</script src="script.js"></script>
+</script>
 <script>
+  const CART_STORAGE_KEY = 'matthewsClothingCart';
   const featuredProduct = {
+    id: 'featured-bryan-signature-tee',
     name: 'Bryan Signature Tee',
     price: 38,
-    description: 'Premium everyday streetwear with a clean fit, soft fabric, and a bold spotlight look.'
+    description: 'Premium everyday streetwear with a clean fit, soft fabric, and a bold spotlight look.',
+    image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80'
   };
 
-  const cart = [];
   let appliedDiscount = 0;
 
   const cartCount = document.getElementById('cartCount');
@@ -591,7 +593,42 @@
     return `$${value.toFixed(2)}`;
   }
 
+  function getCart() {
+    try {
+      const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch (error) {
+      console.error('Unable to read cart from storage.', error);
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  }
+
+  function addItemToCart(product) {
+    const cart = getCart();
+    const existingItem = cart.find(item => item.id === product.id && item.size === product.size);
+
+    if (existingItem) {
+      existingItem.quantity += product.quantity;
+    } else {
+      cart.push(product);
+    }
+
+    saveCart(cart);
+    renderCart();
+  }
+
+  function clearCart() {
+    localStorage.removeItem(CART_STORAGE_KEY);
+    appliedDiscount = 0;
+    renderCart();
+  }
+
   function renderCart() {
+    const cart = getCart();
     const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const discountValue = subtotal * appliedDiscount;
@@ -619,20 +656,23 @@
   document.getElementById('addToCartBtn').addEventListener('click', () => {
     const size = document.getElementById('sizeSelect').value;
     const quantity = Math.max(1, Number(document.getElementById('quantityInput').value) || 1);
-    cart.push({
+
+    addItemToCart({
+      id: featuredProduct.id,
       name: featuredProduct.name,
       price: featuredProduct.price,
       size,
-      quantity
+      quantity,
+      image: featuredProduct.image
     });
+
     cartStatus.textContent = `${featuredProduct.name} added to cart.`;
-    renderCart();
   });
 
   document.getElementById('buyNowBtn').addEventListener('click', () => {
     document.getElementById('addToCartBtn').click();
-    cartStatus.textContent = 'Added to cart. Redirecting you to the full shop next.';
-    window.location.href = 'shop.html';
+    cartStatus.textContent = 'Added to cart. Taking you to checkout.';
+    window.location.href = 'checkout.html';
   });
 
   document.getElementById('wishlistBtn').addEventListener('click', () => {
@@ -640,11 +680,9 @@
   });
 
   document.getElementById('clearCartBtn').addEventListener('click', () => {
-    cart.length = 0;
-    appliedDiscount = 0;
+    clearCart();
     couponMessage.textContent = 'Cart cleared. Use STYLE10 for 10% off this featured item.';
     cartStatus.textContent = 'Cart reset.';
-    renderCart();
   });
 
   document.getElementById('applyCouponBtn').addEventListener('click', () => {
@@ -681,6 +719,12 @@
   document.getElementById('focusFeaturedBtn').addEventListener('click', () => {
     document.getElementById('featuredCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
+
+  document.getElementById('goToCheckoutBtn').addEventListener('click', () => {
+    window.location.href = 'checkout.html';
+  });
+
+  window.addEventListener('storage', renderCart);
 
   renderCart();
 </script>
