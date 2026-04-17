@@ -238,9 +238,14 @@ section {
 
 .product p {
     padding: 0 22px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.product button {
+.loading {
+    color: var(--dark-text);
+    font-style: italic;
+}
     margin: 18px 22px 22px;
     border: 0;
     border-radius: 999px;
