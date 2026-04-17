@@ -25,6 +25,13 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
+function scrollToProducts() {
+  const productsSection = document.getElementById("products");
+  if (productsSection) {
+    productsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
 /**
  * Read products.json and insert product cards into the grid.
  * Adjust the path ('products.json') if your JSON file lives elsewhere.
