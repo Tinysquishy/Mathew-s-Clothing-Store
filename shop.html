@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthew's Clothing Store</title>
+  <title>Shop | Matthew's Clothing Store</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,28 +12,33 @@
   <h1>Matthew's Clothing Store</h1>
   <button id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
   <nav id="siteNav">
-    <a href="#">Home</a>
+    <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- HERO SECTION WITH OVERLAY -->
 <section class="hero">
   <div class="overlay"></div>
-  <h2>New Collection 2026</h2>
-  <p>Style that defines you.</p>
-  <button onclick="window.location.href='shop.html'">Shop Now</button>
+  <h2>All Listings</h2>
+  <p>Shop every item currently posted in the store.</p>
+  <button onclick="window.location.href='index.html'">Back to Home</button>
 </section>
 
-<!-- ABOUT -->
+<section id="products">
+  <h2>Listings</h2>
+  <p>Browse all available products below.</p>
+  <div class="product-grid">
+    <p class="loading">Loading listings...</p>
+  </div>
+</section>
+
 <section id="about">
   <h2>About Us</h2>
   <p>Matthews clothing store delivers bryans mustache</p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <p>Email: support@matthewsclothing.com</p>

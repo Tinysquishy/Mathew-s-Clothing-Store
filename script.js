@@ -44,6 +44,9 @@ async function loadProducts() {
     }
     const products = await response.json();
     const grid = document.querySelector(".product-grid");
+    if (!grid) {
+      return;
+    }
     grid.innerHTML = ""; // clear any existing cards
 
     products.forEach((product) => {
