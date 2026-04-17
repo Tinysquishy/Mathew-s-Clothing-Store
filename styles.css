@@ -119,6 +119,7 @@ section {
 }
 
 #products,
+#featured,
 #about,
 #contact {
     color: var(--dark-text);
@@ -174,6 +175,8 @@ section {
     color: var(--muted);
     font-size: 1.08rem;
     line-height: 1.7;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero button {
@@ -234,6 +237,8 @@ section {
     padding: 22px 22px 8px;
     font-size: 1.35rem;
     color: var(--dark-text);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .product p {
@@ -245,6 +250,8 @@ section {
 .loading {
     color: var(--dark-text);
     font-style: italic;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
     margin: 18px 22px 22px;
     border: 0;
