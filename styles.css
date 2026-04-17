@@ -198,7 +198,8 @@ section {
     background: var(--accent-hover);
 }
 
-.product-grid {
+.product-grid,
+.featured-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
     gap: 24px;

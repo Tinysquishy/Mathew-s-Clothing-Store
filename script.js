@@ -32,6 +32,39 @@ function scrollToProducts() {
   }
 }
 
+async function loadFeaturedItem() {
+  try {
+    const response = await fetch("products.json");
+    if (!response.ok) {
+      throw new Error(`Failed to load products.json: ${response.status}`);
+    }
+    const products = await response.json();
+    const featured = products.find((product) => product.title === "It's Bryan");
+    const grid = document.querySelector(".featured-grid");
+    if (!grid) {
+      return;
+    }
+    grid.innerHTML = "";
+
+    if (featured) {
+      const card = document.createElement("div");
+      card.className = "product";
+      card.innerHTML = `
+        <img src="${featured.image}" alt="${featured.title}">
+        <h3>${featured.title}</h3>
+        <p>${featured.description}</p>
+        <p>$${featured.price.toFixed(2)}</p>
+        <button onclick="window.location.href='shop.html'">View in Shop</button>
+      `;
+      grid.appendChild(card);
+    } else {
+      grid.innerHTML = "<p class='loading'>Featured item not available.</p>";
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 /**
  * Read products.json and insert product cards into the grid.
  * Adjust the path ('products.json') if your JSON file lives elsewhere.
@@ -67,4 +100,7 @@ async function loadProducts() {
 }
 
 // Load products after DOM is ready
-document.addEventListener("DOMContentLoaded", loadProducts);
+document.addEventListener("DOMContentLoaded", () => {
+  loadProducts();
+  loadFeaturedItem();
+});
