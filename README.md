@@ -1,2 +1,2 @@
-# Mathew-s-Clothing-Store
-Mathew's Clothing Store
+# Matthew-s-Clothing-Store
+Matthew's Clothing Store
